@@ -2,7 +2,7 @@
 
 A minimal, cat-themed note-taking application built with React, Vite, and Tailwind CSS. Create, edit, search, and delete notes through a simple interface, with your notes saved locally in your browser.
 
-**Live Demo:** [Cat-Note](https://cat-note-k1ikzbw6a-a-dev7.vercel.app/)
+**Live Demo:** [Cat-Note](https://cat-note-ten.vercel.app/)
 
 **Source Code:** [GitHub Repository](https://github.com/adita097/NotesApp)
 
