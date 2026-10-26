@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { useState, useEffect } from 'react'
 import "./App.css"
 import notepad from "./assets/notp.jpeg"
@@ -60,12 +61,10 @@ function App() {
 
   return (
     <>
-      <div className='h-screen lg:flex bg-black text-white'>
-
+      <div className='h-screen lg:flex overflow-y-auto bg-black text-white'>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-
             if (title.trim() === '' && descr.trim() === '')
               setError("Please add valid title and description.");
 
@@ -78,7 +77,7 @@ function App() {
             else
               submitHandler();
           }}
-          className='flex gap-4 lg:w-7/12 p-10 flex-col items-start'
+          className='flex gap-4 lg:w-5/12 h-full p-10 flex-col items-start'
         >
 
           <h1 className='flex flex-wrap text-4xl mb-2 font-bold'>
@@ -127,11 +126,17 @@ function App() {
             Add Note
           </button>
 
+
+          <div className="flex flex-col gap-3 mt-8">
+            <p>🟦 - To Edit the Note.</p>
+            <p>🔴 - To Delete the Note.</p>
+          </div>
+
         </form>
         {/* Recent Notes */}
 
         <div
-          className='lg:w-8/12 lg:border-l-2 p-10'
+          className='lg:w-7/12 h-full overflow-y-auto lg:border-l-2 p-10'
           style={{ backgroundColor: "#C6C6C6" }}
         >
          <h1 className='text-4xl font-bold text-black'>
@@ -144,7 +149,7 @@ function App() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <div className='flex flex-wrap items-start justify-between gap-6 mt-4 flex-1 overflow-y-auto hide-scrollbar'>
+          <div className='flex flex-wrap items-start justify-between gap-6 mt-4 h-screen overflow hide-scrollbar'>
 
             {filteredTasks.length === 0
 
